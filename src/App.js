@@ -15,6 +15,7 @@ export default function App() {
   // THE FUNCTION SHOULD CALL setBigImage AND PASS IT THE URL
   const handleClick = (imgUrl) => {
     setBigImage(imgUrl)
+    imgUrl.selected
   }
 
   // CREATE A VARIABLE CALLED images THAT LOOPs OVER THE imagesArr AND RETURNS AN <IMG> ELEMENT
@@ -22,13 +23,14 @@ export default function App() {
 
   const images = imagesArr.map((image, index) => {
     return ( 
-    <imagesArr 
-      key={index}
-      src={image.img}
-      alt={image.alt}
-      handleClick={handleClick}
-      className={image.class}
-      />
+      <img 
+        src={image.img}
+        alt={image.city}
+        key={index}
+        className='thumb'
+        onClick={() => handleClick(image.img)}
+
+        ></img>
     )
   })
 
@@ -42,14 +44,16 @@ export default function App() {
       <h1>Cities Of The World</h1>
       <div id="wrapper">
         <div id="thumbnails">
-          <img src={bigImage}
-          onClick={handleAccepts} />
-          </div>
+          {images}
+        </div>
         {/* THE SRC IMAGE URL SHOULD BE SET TO THE VALUE THAT IS STORED IN bigImage */}
         {/* <img src="" id="bigimage" alt='bigImage'/> */}
+        {<img src={bigImage} id="bigImage" alt='bigImage' />}
+
       </div>
     </div>
   );
-}
+  }
+
 
 
