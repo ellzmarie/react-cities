@@ -21,7 +21,9 @@ export default function App() {
   // CREATE A VARIABLE CALLED images THAT LOOPs OVER THE imagesArr AND RETURNS AN <IMG> ELEMENT
   // ASSIGN ALL OF THE PROPERTIES THAT IT NEEDS: src, alt, className, key INCLUDING AN onClick EVENT THAT CALLS THE HANDLE EVENT FUNCTION AND PASSES IT THE IMG URL
 
+
   const images = imagesArr.map((image, index) => {
+      //you can put a ternary on the style property and add a border right here!
     return ( 
       <img 
         src={image.img}
@@ -29,7 +31,9 @@ export default function App() {
         key={index}
         className='thumb'
         onClick={() => handleClick(image.img)}
-
+        style={{
+          border: image.img === bigImage ?  '4px solid green' : ''
+        }}
         ></img>
     )
   })
